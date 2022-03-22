@@ -233,8 +233,6 @@ color: #FFFFFF;
 
   @media screen and (max-width: 450px) {
     .profile__subtitle {
-      
-       
         font-size: 14px;
         line-height: 17px;
         
@@ -253,7 +251,12 @@ color: #FFFFFF;
     background-color: #000;
     border: 1px solid #fff;
     transition: opacity 0.2s ease;
+    background-image: url(../images/Vector2.svg);
+    background-size: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
+  
   
   .profile__edit-button:hover {
     opacity: 0.6;
@@ -273,23 +276,11 @@ color: #FFFFFF;
       width: 18px;
       height: 18px;
       margin: 0 0 7px 10px;
+      background-size: 7.5px;
+      
     }
   }
 
-  .profile__edit-vector {
-    width: 10px;
-    height: 10px;
-    background-image: url(../images/Vector2.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  @media screen and (max-width: 450px) {
-    .profile__edit-vector {
-      width: 7.5px;
-      height: 7.5px;
-    }
-  }
 
   .profile__add-button {
     min-width: 150px;
@@ -302,7 +293,12 @@ color: #FFFFFF;
     box-sizing: border-box;
     border-radius: 2px;
     margin: auto 0 auto auto;
-     padding: 0;
+    
+     background-image: url(../images/Vector\ \(1\).svg);
+
+     background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .profile__add-button:hover {
@@ -313,39 +309,21 @@ color: #FFFFFF;
     .profile__add-button {
         margin: 36px auto 0;
         min-width: 282px;
+        background-size: 19px;
     }
 }
 
 
   @media screen and (max-width: 450px) {
     .profile__add-button {
-        margin: 36px 19px 0;
+        margin: 0 19px 0;
       min-width: 282px;
+      background-size: 16px;
     }
 }
 
-.profile__add-vector {
-    width: 22px;
-    height: 22px;
-    background-image: url(../images/Vector\ \(1\).svg);
-    margin: auto;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
-@media screen and (max-width: 767px) {
-  .profile__add-vector {
-      width: 19px;
-      height: 19px;
-  }
-  }
-  
-@media screen and (max-width: 450px) {
-    .profile__add-vector {
-        width: 16px;
-        height: 16px;
-    }
-    }
+
     .elements { 
         margin: 0 auto; 
         display: grid; 
@@ -588,8 +566,6 @@ outline: none;
 padding: 0;
 margin: 0 auto;
   max-width: 358px;
-
-
 }
 
 .popup__input_name {
