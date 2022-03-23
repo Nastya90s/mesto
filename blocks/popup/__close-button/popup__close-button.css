@@ -1,0 +1,74 @@
+.popup__close-button {
+    position: absolute;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    right: -35px;
+    top: -35px
+  }
+
+@media screen and (max-width: 767px) {
+.popup__close-button {
+    width: 25px;
+    height: 25px;
+    right: -10px;
+    top: -37px
+  }
+}
+
+@media screen and (max-width: 450px) {
+.popup__close-button {
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: -33px
+  }
+}
+
+.popup__close-button::before {
+    position: absolute;
+    content: '';
+    height: 30px;
+    top: 0;
+    border: 2px solid white;
+    transform: rotate(45deg);
+}
+
+@media screen and (max-width: 767px) {
+.popup__close-button::before {
+    height: 27px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+.popup__close-button::before {
+    height: 22px;
+    border: 1.5px solid white;
+  }
+}
+
+.popup__close-button::after {
+    position: absolute;
+    content: '';
+    height: 30px;
+    top: 0;
+    border: 2px solid white;
+    transform: rotate(-45deg);
+  }
+
+@media screen and (max-width: 767px) {
+.popup__close-button::after {
+    height: 27px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+.popup__close-button::after {
+    height: 22px;
+    border: 1.5px solid white;
+  }
+}

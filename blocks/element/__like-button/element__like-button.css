@@ -1,0 +1,21 @@
+.element__like-button {
+    outline: none;
+    border: none;
+    width: 22px;
+    height: 19px;
+    align-self: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+    background-image: url(../../../images/like.svg);
+    margin: 0 0 2px; 
+    background-size: cover;
+  }
+
+.element__like-button:hover {
+    opacity: 0.6;
+  }
+
+.element__like-button_active {
+    background-image: url(../../../images/Union.svg);
+  }

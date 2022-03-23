@@ -1,9 +1,7 @@
 <!DOCTYPE html>  
 <html lang="ru">  
 <head>  
-<link rel="stylesheet" href="styles/normalize.css"> 
-<link rel="stylesheet" href="styles/style.css">  
-<link rel="stylesheet" href="./fonts/fonts.css">
+<link rel="stylesheet" href="pages/index.css"> 
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Место</title> 
@@ -77,20 +75,15 @@
     </div>
     <div class="popup">
         <div class="popup__window">
-           <button class="popup__close-button"></button>
-           <section class="popup__content">
-              <h3 class="popup__title">Редактировать профиль</h3>
-              <form name="form" class="popup__form"></form>
-               <input class="popup__input popup__input_name" type="text">
-               <div class="line"></div>
-               <input class="popup__input popup__input_job" type="text">
-               <div class="line"></div>
-              <button type="submit" class="popup__save-button"><p class="popup__save-title">Сохранить</p></button>
-             </form>
-           </section>
+          <button class="popup__close-button"></button>
+          <form class="popup__form">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <input class="popup__input popup__input-name" type="text">
+            <input class="popup__input popup__input-job" type="text">
+            <button type="submit" class="popup__save-button">Сохранить</button>
+          </form>
         </div>
     </div>
     <script src="./scripts/index.js"></script>
-</body> 
-
+</body>
 </html> 
