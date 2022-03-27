@@ -1,4 +1,5 @@
-.popup__input-name {
+.popup__input_type_job {
+    margin-top: 30px;
     max-width: 358px;
     font-style: normal;
     font-weight: 400;
@@ -7,15 +8,14 @@
     color: #000000;
     margin-left: 36px;
     margin-right: 36px;
-    margin-top: 54px;
   }
 
 @media screen and (max-width: 470px) {
-.popup__input-name {
+.popup__input_type_job {
     max-width: 238px;
     margin-left: 22px;
     margin-right: 22px;
-    margin-top: 75px;
+    margin-top: 30px;
     margin-bottom: 0;
   }
-}
+} 
