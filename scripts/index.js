@@ -12,10 +12,11 @@ const popupAddPlace = document.querySelector('.popup_type_add');
 const openPopUpAddPlace = document.querySelector('.profile__add-button');
 
 //Объявление элементов формы
-const formElement = document.querySelector(".popup__form");
+const formElementEdit = document.querySelector(".popup__form_type_edit");
 const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_job");
 
+const formElementAdd = document.querySelector(".popup__form_type_add");
 const placeInput = popupAddPlace.querySelector('.popup__input_type_place');
 const srcInput = popupAddPlace.querySelector('.popup__input_type_src');
 
@@ -89,8 +90,8 @@ const closePopup = (popUp) => {
 }
 
 const onDocumentKeyUp = (evt) => {
-  const popUp = document.querySelector('.popup_opened');
-   if (evt.key === "Escape") {
+  if (evt.key === "Escape") {
+   const popUp = document.querySelector('.popup_opened');
    closePopup(popUp);
   }
 }
@@ -125,5 +126,5 @@ const handleProfileFormSubmit = (evt) => {
   closePopup(popupEditProfile);
 }
 
-popupEditProfile.addEventListener('submit', handleProfileFormSubmit);
-popupAddPlace.addEventListener('submit', addCard);
+formElementEdit.addEventListener('submit', handleProfileFormSubmit);
+formElementAdd.addEventListener('submit', addCard);
