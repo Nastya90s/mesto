@@ -20,7 +20,7 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
 .popup__close-button {
     width: 20px;
     height: 20px;
@@ -44,7 +44,7 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
 .popup__close-button::before {
     height: 22px;
     border: 1.5px solid white;
@@ -66,7 +66,7 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 490px) {
 .popup__close-button::after {
     height: 22px;
     border: 1.5px solid white;

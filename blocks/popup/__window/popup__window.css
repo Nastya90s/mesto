@@ -1,6 +1,7 @@
 .popup__window {
     position: relative;
     min-width: 430px;
+    max-width: 816px;
     margin: auto;
   }
 
