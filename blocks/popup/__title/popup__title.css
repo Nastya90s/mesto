@@ -8,7 +8,7 @@
     color: #000000;
   }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 570px) {
 .popup__title {
     max-width: 238px;
     margin: 25px 22px 45px 22px;

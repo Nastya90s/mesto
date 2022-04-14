@@ -4,3 +4,8 @@
    object-fit: cover;
 }
   
+@media screen and (max-width: 460px) {
+   .popup__image {
+      max-width: 100%;
+     }
+   }
