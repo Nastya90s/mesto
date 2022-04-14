@@ -1,19 +1,10 @@
 .popup__window {
     position: relative;
-    min-width: 430px;
-    max-width: 816px;
     margin: auto;
   }
 
- @media screen and (max-width: 930px) {
- .popup__window { 
-    max-width: 430px;
-  }
-}
-
 @media screen and (max-width: 470px) {
 .popup__window {
-    min-width: 282px;
     margin: 123px 19px;
   }
 }
