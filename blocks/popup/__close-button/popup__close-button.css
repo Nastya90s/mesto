@@ -11,16 +11,7 @@
     top: -35px;
   }
 
-@media screen and (max-width: 767px) {
-.popup__close-button {
-    width: 25px;
-    height: 25px;
-    right: -10px;
-    top: -37px;
-  }
-}
-
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 570px) {
 .popup__close-button {
     width: 20px;
     height: 20px;
@@ -38,13 +29,7 @@
     transform: rotate(45deg);
 }
 
-@media screen and (max-width: 767px) {
-.popup__close-button::before {
-    height: 27px;
-  }
-}
-
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 570px) {
 .popup__close-button::before {
     height: 22px;
     border: 1.5px solid white;
@@ -60,13 +45,7 @@
     transform: rotate(-45deg);
   }
 
-@media screen and (max-width: 767px) {
-.popup__close-button::after {
-    height: 27px;
-  }
-}
-
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 570px) {
 .popup__close-button::after {
     height: 22px;
     border: 1.5px solid white;
