@@ -2,9 +2,3 @@
     position: relative;
     margin: auto;
   }
-
-@media screen and (max-width: 570px) {
-.popup__window {
-    margin: 123px 19px;
-  }
-}
