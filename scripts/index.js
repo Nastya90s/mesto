@@ -68,6 +68,8 @@ initialCards.forEach(item => {
 
 })
 
+
+
 //Добавление новой картчоки
 const addCard = (evt) => {
   evt.preventDefault();
@@ -82,11 +84,13 @@ const addCard = (evt) => {
 const openPopup = (popUp) => {
   popUp.classList.add("popup_opened");
   document.addEventListener("keyup", onDocumentKeyUp);
+  popUp.addEventListener('mousedown', closeOnOverlay);
 }
 
 const closePopup = (popUp) => {
   popUp.classList.remove("popup_opened");
     document.removeEventListener('keyup', onDocumentKeyUp);
+    popUp.removeEventListener('mousedown', closeOnOverlay);
 }
 
 const onDocumentKeyUp = (evt) => {
@@ -94,7 +98,13 @@ const onDocumentKeyUp = (evt) => {
    const popUp = document.querySelector('.popup_opened');
    closePopup(popUp);
   }
-}
+};
+
+const closeOnOverlay = (evt) => {
+  if (evt.target === evt.currentTarget) {
+      closePopup(evt.target);
+  }
+};
 
 openPopUpEditProfile.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
@@ -116,7 +126,7 @@ popupAddPlace.querySelector('.popup__close-button').addEventListener('click', ()
 
 popupImage.querySelector('.popup__close-button').addEventListener('click', () => {
   closePopup(popupImage);
-})
+});
 
 // Cохранение данных профиля
 const handleProfileFormSubmit = (evt) => {

@@ -33,14 +33,14 @@
 
   <div class="popup popup_type_edit">
     <div class="popup__window">
-      <form class="popup__form popup__form_type_edit" name="form" novalidate>
+      <form class="popup__form popup__form_type_edit" name="user" novalidate>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input class="popup__input popup__input_type_name popup__input_type_error" type="text" id="input-name" name="name" placeholder="Введите имя" minlength="2" maxlength="40" required>
-        <span id="input-name-error" class="popup__error">Вы пропустили это поле.</span>
-        <input class="popup__input popup__input_type_job popup__input_type_error" type="text" id="input-job" 
-        name="job" placeholder="Введите профессию" minlength="2" maxlength="200" required>
-        <span id="input-job-error" class="popup__error">Вы пропустили это поле.</span>
-        <button type="submit" class="popup__save-button popup__save-button_invalid">Сохранить</button>
+        <input class="popup__input popup__input_type_name" type="text" id="input-name" name="name" placeholder="Введите имя" required minlength="2" maxlength="40">
+        <span id="input-name-error" class="popup__error"></span>
+        <input class="popup__input popup__input_type_job" type="text" id="input-job" 
+        name="job" placeholder="Введите профессию" required minlength="2" maxlength="200">
+        <span id="input-job-error" class="popup__error"></span>
+        <button type="submit" class="popup__save-button">Сохранить</button>
         <button type='button' class="popup__close-button"></button>
       </form>
     </div>
@@ -48,15 +48,15 @@
 
   <div class="popup popup_type_add">
     <div class="popup__window">
-      <form class="popup__form popup__form_type_add" name="form" novalidate>
+      <form class="popup__form popup__form_type_add" name="place" novalidate>
         <h3 class="popup__title">Новое место</h3>
         <input class="popup__input popup__input_type_place" type="text" id="element-place" 
-        name="place" placeholder="Название"  minlength="2" maxlength="30" required>
+        name="place" placeholder="Название" required minlength="2" maxlength="30">
         <span id="element-place-error" class="popup__error"></span>
-        <input class="popup__input popup__input_type_src" type="url" id="element-src" 
-        name="src" placeholder="Ссылка на картинку" required>
+        <input class="popup__input popup__input_type_src" required type="url" id="element-src" 
+        name="src" placeholder="Ссылка на картинку">
         <span id="element-src-error" class="popup__error"></span>
-        <button type="submit" class="popup__save-button popup__save-button_invalid">Создать</button>
+        <button type="submit" class="popup__save-button">Создать</button>
         <button type='button' class="popup__close-button"></button>
       </form>
     </div>
