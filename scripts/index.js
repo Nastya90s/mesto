@@ -1,3 +1,6 @@
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+
 //Объявление popupEditProfile
 const popupEditProfile = document.querySelector(".popup_type_edit");
 const openPopUpEditProfile = document.querySelector(".profile__edit-button");
@@ -31,31 +34,10 @@ const elementsContainer = document.querySelector('.elements');
 
 const createCards = (cardTitle, cardSrc) => {
   const cardElement = elementsTemplate.querySelector('.element').cloneNode(true);
-  const cardImage = cardElement.querySelector('.element__image');
 
-  cardElement.querySelector('.element__title').textContent = cardTitle;
-  cardImage.setAttribute('src', cardSrc);
-  cardImage.setAttribute('alt', cardTitle);
+  const card = new Card(cardSrc, cardTitle, cardElement);
 
-  const likeButton = cardElement.querySelector('.element__like-button');
-  const deleteButton = cardElement.querySelector('.element__delete-button');
-
-  likeButton.addEventListener('click', () => {
-    likeButton.classList.toggle('element__like-button_active');
-  })
-
-  deleteButton.addEventListener('click', () => {
-    cardElement.remove();
-  })
-
-  cardImage.addEventListener('click', () => {
-    popupImageStretch.src = cardSrc;
-    popupImageStretch.alt = cardTitle;
-    popupImageSubtitle.textContent = cardTitle;
-    openPopup(popupImage);
-  })
-
-  return cardElement;
+  return card.getTemplate()
 }
 
 const renderCard = (newCard) => {
@@ -64,20 +46,24 @@ const renderCard = (newCard) => {
 
 initialCards.forEach(item => {
   const newCard = createCards(item.name, item.link)
+
   renderCard(newCard);
-
 })
-
-
 
 //Добавление новой картчоки
 const addCard = (evt) => {
   evt.preventDefault();
   const newCard = createCards(placeInput.value, srcInput.value);
   elementsContainer.prepend(newCard);
-  placeInput.value = '';
-  srcInput.value = '';
+  evt.target.reset();
   closePopup(popupAddPlace);
+  disabledSubmitButton();
+}
+
+const disabledSubmitButton = () => {
+  const disabledButton = popupAddPlace.querySelector('.popup__save-button');
+  disabledButton.classList.add('popup__save-button_invalid');
+  disabledButton.setAttribute('disabled', true);
 }
 
 // Открытие и закрытие попапов
@@ -138,3 +124,18 @@ const handleProfileFormSubmit = (evt) => {
 
 formElementEdit.addEventListener('submit', handleProfileFormSubmit);
 formElementAdd.addEventListener('submit', addCard);
+
+// FormValidator
+const formValidatorOptions = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_invalid',
+  inputErrorClass: 'popup__input_type_error',
+}
+const formList = Array.from(document.querySelectorAll(formValidatorOptions.formSelector));
+
+formList.forEach((formElement) => {
+  const formValidator = new FormValidator(formValidatorOptions, formElement);
+  formValidator.enableValidation();
+});
