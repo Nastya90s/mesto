@@ -25,19 +25,24 @@ const srcInput = popupAddPlace.querySelector('.popup__input_type_src');
 
 //Объявление окна с картинкой
 const popupImage = document.querySelector('.popup_type_image');
-const popupImageStretch = popupImage.querySelector('.popup__image');
-const popupImageSubtitle = popupImage.querySelector('.popup__subtitle');
-   
+
 //Template
 const elementsTemplate = document.querySelector('#elements-template').content;
 const elementsContainer = document.querySelector('.elements');
+
+// Открытие и закрытие попапов
+const openPopup = (popUp) => {
+  popUp.classList.add("popup_opened");
+  document.addEventListener("keyup", onDocumentKeyUp);
+  popUp.addEventListener('mousedown', closeOnOverlay);
+}
 
 const createCards = (cardTitle, cardSrc) => {
   const cardElement = elementsTemplate.querySelector('.element').cloneNode(true);
 
   const card = new Card(cardSrc, cardTitle, cardElement);
 
-  return card.getTemplate()
+  return card.getTemplate(popupImage, openPopup)
 }
 
 const renderCard = (newCard) => {
@@ -64,13 +69,6 @@ const disabledSubmitButton = () => {
   const disabledButton = popupAddPlace.querySelector('.popup__save-button');
   disabledButton.classList.add('popup__save-button_invalid');
   disabledButton.setAttribute('disabled', true);
-}
-
-// Открытие и закрытие попапов
-const openPopup = (popUp) => {
-  popUp.classList.add("popup_opened");
-  document.addEventListener("keyup", onDocumentKeyUp);
-  popUp.addEventListener('mousedown', closeOnOverlay);
 }
 
 const closePopup = (popUp) => {

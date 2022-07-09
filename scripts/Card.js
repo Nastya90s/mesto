@@ -5,8 +5,10 @@ export default class Card {
         this._name = name;
     }
 
-    _prepareTemplate() {
+    _prepareTemplate(popupImage, openPopup) {
         const cardImage = this._cardElement.querySelector('.element__image');
+        const popupImageStretch = popupImage.querySelector('.popup__image');
+        const popupImageSubtitle = popupImage.querySelector('.popup__subtitle');
 
         this._cardElement.querySelector('.element__title').textContent = this._name;
         cardImage.setAttribute('src', this._link);
@@ -33,7 +35,7 @@ export default class Card {
         return this._cardElement;
     }
 
-    getTemplate() {
-        return this._prepareTemplate();
+    getTemplate(popupImage, openPopup) {
+        return this._prepareTemplate(popupImage, openPopup);
     }
   }
