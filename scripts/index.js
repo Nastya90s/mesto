@@ -1,9 +1,10 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
+import initialCards from './cards.js'
 
 //Объявление popupEditProfile
 const popupEditProfile = document.querySelector(".popup_type_edit");
-const openPopUpEditProfile = document.querySelector(".profile__edit-button");
+const popUpOpenEditProfile = document.querySelector(".profile__edit-button");
 
 //Объявление данных из профиля
 const profile = document.querySelector('.profile');
@@ -12,7 +13,7 @@ const profileSubtitle = profile.querySelector(".profile__subtitle");
 
 //Объявление popupAddPlace
 const popupAddPlace = document.querySelector('.popup_type_add');
-const openPopUpAddPlace = document.querySelector('.profile__add-button');
+const popUpOpenAddPlace = document.querySelector('.profile__add-button');
 
 //Объявление элементов формы
 const formElementEdit = document.querySelector(".popup__form_type_edit");
@@ -38,9 +39,7 @@ const openPopup = (popUp) => {
 }
 
 const createCards = (cardTitle, cardSrc) => {
-  const cardElement = elementsTemplate.querySelector('.element').cloneNode(true);
-
-  const card = new Card(cardSrc, cardTitle, cardElement);
+  const card = new Card(cardSrc, cardTitle, elementsTemplate);
 
   return card.getTemplate(popupImage, openPopup)
 }
@@ -62,13 +61,6 @@ const addCard = (evt) => {
   elementsContainer.prepend(newCard);
   evt.target.reset();
   closePopup(popupAddPlace);
-  disabledSubmitButton();
-}
-
-const disabledSubmitButton = () => {
-  const disabledButton = popupAddPlace.querySelector('.popup__save-button');
-  disabledButton.classList.add('popup__save-button_invalid');
-  disabledButton.setAttribute('disabled', true);
 }
 
 const closePopup = (popUp) => {
@@ -90,13 +82,13 @@ const closeOnOverlay = (evt) => {
   }
 };
 
-openPopUpEditProfile.addEventListener("click", () => {
+popUpOpenEditProfile.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
   openPopup(popupEditProfile);
 });
 
-openPopUpAddPlace.addEventListener('click', () => {
+popUpOpenAddPlace.addEventListener('click', () => {
   openPopup(popupAddPlace);
 });
 
@@ -131,9 +123,9 @@ const formValidatorOptions = {
   inactiveButtonClass: 'popup__save-button_invalid',
   inputErrorClass: 'popup__input_type_error',
 }
-const formList = Array.from(document.querySelectorAll(formValidatorOptions.formSelector));
 
-formList.forEach((formElement) => {
-  const formValidator = new FormValidator(formValidatorOptions, formElement);
-  formValidator.enableValidation();
-});
+const profileValidation = new FormValidator(formValidatorOptions, popupEditProfile);
+const newCardValidation = new FormValidator(formValidatorOptions, popupAddPlace);
+
+profileValidation.enableValidation();
+newCardValidation.enableValidation();

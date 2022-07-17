@@ -2,10 +2,11 @@
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
-      line-height: 15px;
+      min-height: 30px;
       color: #FF0000;
       max-width: 358px;
       padding-top: 5px;
       margin-left: 36px;
       margin-right: 36px;
+      display: block;
   }
