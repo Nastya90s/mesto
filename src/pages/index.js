@@ -43,7 +43,6 @@ const avatarValidation = new FormValidator(
   ".popup_type_avatar"
 )
 function handleCardClick(name, link) {
-  console.log(name, link);
   popupWithImage.open(link, name);
 }
 
@@ -58,7 +57,6 @@ function handleDeleteCard(card) {
       popupWithConfirm.close();
     })
     .catch((err) => {
-      console.log(err);
     })
 }
 
@@ -70,7 +68,6 @@ function handleUpdateAvatar(data) {
       popupWithAvatar.close()
     })
     .catch((err) => {
-      console.log(err);
     }) 
     .finally(() => {
       popupWithAvatar.popupLoading(false);
@@ -93,7 +90,6 @@ const createCard = (cardData) => {
         card.setQuantityLikes(cardElement);
       })
       .catch((err) => {
-        console.log(err);
       })
     }, 
     () => {
@@ -103,7 +99,6 @@ const createCard = (cardData) => {
         card.setQuantityLikes(cardElement);
       })
       .catch((err) => {
-        console.log(err);
       }) 
     });
 
@@ -118,7 +113,6 @@ function handleCreateCardFromForm(inputValues) {
       popupAddCard.close
     })
     .catch((err) => {
-      console.log(err);
     })
     .finally(() => {
       popupAddCard.popupLoading(false)
@@ -133,7 +127,6 @@ function handleSubmitEditProfile(userData) {
       popupEditProfile.close
     })
     .catch((err) => {
-      console.log(err);
     })
     .finally(() => {
       popupEditProfile.popupLoading(false)
@@ -212,15 +205,4 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     cardsSection.render(initialCards.reverse());
 })
 .catch(err => {
-    console.log(err);
 });
-
-
-
-
-
-
-
-
-
-

@@ -27,7 +27,6 @@ export default class Api {
     }
   
     saveNewUserInfo(userData) {
-        console.log(userData)
       return fetch(this._baseUrl + '/users/me', {
         method: 'PATCH',
         headers: this._headers,
@@ -49,7 +48,6 @@ export default class Api {
     }
   
     sendNewCard(inputValues) {
-        console.log(inputValues);
       return fetch(this._baseUrl + '/cards', {
         method: 'POST',
         headers: this._headers,
