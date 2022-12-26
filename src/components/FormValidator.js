@@ -20,6 +20,7 @@ export default class FormValidator {
 
     _hasInvalidInput () {
         return this._inputList.some((inputElement) => {
+            console.log(inputElement.validity.valid);
             return !inputElement.validity.valid;
         });
     };
@@ -38,6 +39,7 @@ export default class FormValidator {
     };
 
     _toggleButtonState = () => { 
+        console.log(this._hasInvalidInput());
         if (this._hasInvalidInput()) { 
             this.disableButton()
         } else {

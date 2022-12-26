@@ -13,7 +13,10 @@
 
   <main class="content"> 
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар пользователя">
+      <div class="profile__avatar-container">
+        <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар пользователя">
+        <div class="profile__avatar-overlay"></div>
+      </div>
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
         <button class="profile__edit-button" type="button"></button>
@@ -34,10 +37,10 @@
     <div class="popup__window">
       <form class="popup__form popup__form_type_edit" name="user" novalidate>
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input class="popup__input popup__input_type_name" type="text" id="input-name" name="name" placeholder="Введите имя" required minlength="2" maxlength="40">
+        <input class="popup__input popup__input_type_name" type="text" id="input-name" name="title" placeholder="Введите имя" required minlength="2" maxlength="40">
         <span id="input-name-error" class="popup__error"></span>
-        <input class="popup__input popup__input_type_job" type="text" id="input-job" 
-        name="job" placeholder="Введите профессию" required minlength="2" maxlength="200">
+        <input class="popup__input popup__input_type_job" type="text" name="subtitle" id="input-job" 
+        placeholder="Введите профессию" required minlength="2" maxlength="200">
         <span id="input-job-error" class="popup__error"></span>
         <button type="submit" class="popup__save-button">Сохранить</button>
         <button type='button' class="popup__close-button"></button>
@@ -69,13 +72,39 @@
     </div>
   </div>
 
+  <div class="popup popup_type_avatar">
+    <div class="popup__window">
+      <form class="popup__form popup__form_type_avatar" name="avatar" novalidate>
+        <h3 class="popup__title">Обновить аватар</h3>
+        <input class="popup__input popup__input_type_avatar" required type="url" id="element-avatar" 
+        name="avatar" placeholder="Ссылка на картинку">
+        <span id="element-avatar-error" class="popup__error"></span>
+        <button type="submit" class="popup__save-button">Сохранить</button>
+        <button type='button' class="popup__close-button"></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_confirm">
+    <div class="popup__window">
+      <form class="popup__form popup__form_type_confirm" name="confirm" novalidate>
+        <h3 class="popup__title">Вы уверены?</h3>
+        <button type="submit" class="popup__save-button">Сохранить</button>
+        <button type='button' class="popup__close-button"></button>
+      </form>
+    </div>
+  </div>
+
 <template id="elements-template">
  <article class="element">
   <button type="button" class="element__delete-button"></button>
   <img class="element__image" src="#" alt="">
   <div class="element__conteiner">
     <h2 class="element__title"></h2>
-    <button class="element__like-button" type="button"></button>
+    <div class="element__like-conteiner">
+      <button class="element__like-button" type="button"></button>
+      <p class="element__like-count">0</p>
+    </div>
   </div>
  </article>
 </template>

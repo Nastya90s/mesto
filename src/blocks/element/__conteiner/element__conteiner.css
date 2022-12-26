@@ -2,5 +2,6 @@
     display: flex;
     justify-content: space-between;
     max-width: 282px;
-    margin: 25px 15px 31px 21px;
+    margin: 25px 15px 28px 21px;
+    max-height: 28px;
   }

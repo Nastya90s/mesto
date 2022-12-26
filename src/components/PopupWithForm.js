@@ -6,12 +6,32 @@ export default class PopupWithForm extends Popup {
         super(popupSelector); // Вызывает конструктор Popup, который сохраняет _popupElement
         this._submitCallback = submitCallback;
         this._form = this._popupElement.querySelector('.popup__form');
+        this._submitButton = this._form.querySelector('.popup__save-button');
+        this._inputList = this._form.querySelectorAll('.popup__input');
         this.close = this.close.bind(this);
     }
 
     // Приватный метод, который собирает данные всех полей формы
     _getInputValues () {
-        return Object.fromEntries(new FormData(this._form))
+       this._inputsData = {};
+       this._inputList.forEach(input => {
+        this._inputsData[input.name] = input.value;
+       }) 
+       return this._inputsData;
+    }
+
+    setInputValues(data) {
+        this._inputList.forEach((input) => {
+            input.value = data[input.name];
+        })
+    }
+
+    popupLoading(state, message) {
+        if (state) {
+            this._submitButton.textContent = message;
+        } else {
+            this._submitButton.textContent = 'Сохранить';
+        }
     }
 
     setEventListeners () {

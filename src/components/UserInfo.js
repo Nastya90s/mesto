@@ -1,21 +1,27 @@
 export default class UserInfo {
-  // Принимает в конструктор объект с селекторами имени пользователя и информации о себе
-  constructor ({ titleSelector, subtitleSelector }) {
+  constructor ({ titleSelector, subtitleSelector, avatarSelector }) {
     this._titleElement = document.querySelector(titleSelector);
     this._subtitleElement = document.querySelector(subtitleSelector);
+    this._avatar = document.querySelector(avatarSelector);
   }
 
-  // Возвращает данные профиля
   getUserInfo () {
     return {
       title: this._titleElement.textContent,
-      subtitle: this._subtitleElement.textContent
+      subtitle: this._subtitleElement.textContent,
+      avatar: this._avatar.src,
     };
   }
 
-  // Устанавливает данные профиля
-  setUserInfo ({ title, subtitle }) {
-    this._titleElement.textContent = title;
-    this._subtitleElement.textContent = subtitle;
+  setUserInfo ({ name, about }) {
+    this._titleElement.textContent = name;
+    this._subtitleElement.textContent = about;
+  }
+
+  setUserAvatar ({ avatar }) {
+    this._avatar.src = avatar;
+    this._avatar.alt = 'Аватар';
   }
 }
+
+ 
