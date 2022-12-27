@@ -57,6 +57,7 @@ function handleDeleteCard(card) {
       popupWithConfirm.close();
     })
     .catch((err) => {
+      console.log(err);
     })
 }
 
@@ -68,6 +69,7 @@ function handleUpdateAvatar(data) {
       popupWithAvatar.close()
     })
     .catch((err) => {
+      console.log(err);
     }) 
     .finally(() => {
       popupWithAvatar.renderLoading(false);
@@ -90,6 +92,7 @@ const createCard = (cardData) => {
         card.setQuantityLikes(cardElement);
       })
       .catch((err) => {
+        console.log(err);
       })
     }, 
     () => {
@@ -99,6 +102,7 @@ const createCard = (cardData) => {
         card.setQuantityLikes(cardElement);
       })
       .catch((err) => {
+        console.log(err);
       }) 
     });
 
@@ -113,6 +117,7 @@ function handleCreateCardFromForm(inputValues) {
       popupAddCard.close();
     })
     .catch((err) => {
+      console.log(err);
     })
     .finally(() => {
       popupAddCard.renderLoading(false)
@@ -127,6 +132,7 @@ function handleSubmitEditProfile(userData) {
       popupEditProfile.close();
     })
     .catch((err) => {
+      console.log(err);
     })
     .finally(() => {
       popupEditProfile.renderLoading(false)
@@ -205,4 +211,5 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     cardsSection.renderItems(initialCards.reverse());
 })
 .catch(err => {
+  console.log(err);
 });
