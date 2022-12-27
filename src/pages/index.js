@@ -65,6 +65,7 @@ function handleUpdateAvatar(data) {
   popupWithAvatar.renderLoading(true, "Сохранение...")
   api.saveNewUserAvatar(data)
     .then((userData) => {
+      console.log(userData);
       userInfo.setUserAvatar(userData)
       popupWithAvatar.close()
     })
@@ -205,6 +206,7 @@ let userId;
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
 .then(([userData, initialCards]) => {
+  console.log(userData);
     userId = userData._id;
     userInfo.setUserInfo(userData);
     userInfo.user = userData;

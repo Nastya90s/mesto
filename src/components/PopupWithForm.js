@@ -3,7 +3,7 @@ import Popup from './Popup.js'
 export default class PopupWithForm extends Popup {
     // Кроме селектора попапа принимает в конструктор колбэк сабмита формы
     constructor (popupSelector, submitCallback) {
-        super(popupSelector); // Вызывает конструктор Popup, который сохраняет _popupElement
+        super(popupSelector); 
         this._submitCallback = submitCallback;
         this._form = this._popupElement.querySelector('.popup__form');
         this._submitButton = this._form.querySelector('.popup__save-button');
