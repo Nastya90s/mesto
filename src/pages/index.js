@@ -47,7 +47,7 @@ function handleCardClick(name, link) {
 }
 
 function handlePopupDeleteCard(data) {
-  popupWithConfirm.ownerCard(data);
+  popupWithConfirm.openCard(data);
 }
 
 function handleDeleteCard(card) {
@@ -61,7 +61,7 @@ function handleDeleteCard(card) {
 }
 
 function handleUpdateAvatar(data) {
-  popupWithAvatar.popupLoading(true, "Сохранение...")
+  popupWithAvatar.renderLoading(true, "Сохранение...")
   api.saveNewUserAvatar(data)
     .then((userData) => {
       userInfo.setUserAvatar(userData)
@@ -70,7 +70,7 @@ function handleUpdateAvatar(data) {
     .catch((err) => {
     }) 
     .finally(() => {
-      popupWithAvatar.popupLoading(false);
+      popupWithAvatar.renderLoading(false);
     })
 }
 
@@ -106,30 +106,30 @@ const createCard = (cardData) => {
 };
 
 function handleCreateCardFromForm(inputValues) {
-  popupAddCard.popupLoading(true, 'Сохранение...');
+  popupAddCard.renderLoading(true, 'Сохранение...');
   api.sendNewCard(inputValues)
     .then((res) => {
       cardsSection.addItem(createCard(res))
-      popupAddCard.close
+      popupAddCard.close();
     })
     .catch((err) => {
     })
     .finally(() => {
-      popupAddCard.popupLoading(false)
+      popupAddCard.renderLoading(false)
     })
 }
 
 function handleSubmitEditProfile(userData) {
-  popupEditProfile.popupLoading(true, 'Сохранение...');
+  popupEditProfile.renderLoading(true, 'Сохранение...');
   api.saveNewUserInfo(userData)
     .then((res) => {
       userInfo.setUserInfo(res)
-      popupEditProfile.close
+      popupEditProfile.close();
     })
     .catch((err) => {
     })
     .finally(() => {
-      popupEditProfile.popupLoading(false)
+      popupEditProfile.renderLoading(false)
     })
 }
 
@@ -168,7 +168,7 @@ const popupWithAvatar = new PopupWithForm(popupAvatar, handleUpdateAvatar);
 popUpOpenEditProfile.addEventListener("click", () => {
   profileValidation.resetValidation();
   popupEditProfile.setInputValues(userInfo.getUserInfo());
-  popupEditProfile.open(); // вместо openPopup(popupEditProfile);
+  popupEditProfile.open();
 });
 avatarButton.addEventListener("click", () => {
   avatarValidation.resetValidation();
@@ -202,7 +202,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     userId = userData._id;
     userInfo.setUserInfo(userData);
     userInfo.user = userData;
-    cardsSection.render(initialCards.reverse());
+    cardsSection.renderItems(initialCards.reverse());
 })
 .catch(err => {
 });

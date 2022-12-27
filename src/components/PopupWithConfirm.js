@@ -6,7 +6,7 @@ export default class PopupWithConfirm extends Popup {
     this._form = this._popupElement.querySelector('.popup__form');
   };
 
-    ownerCard (card) {
+    openCard (card) {
         this._card = card;
         super.open();
     }

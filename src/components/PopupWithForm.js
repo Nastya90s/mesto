@@ -26,7 +26,7 @@ export default class PopupWithForm extends Popup {
         })
     }
 
-    popupLoading(state, message) {
+    renderLoading(state, message) {
         if (state) {
             this._submitButton.textContent = message;
         } else {
@@ -40,12 +40,11 @@ export default class PopupWithForm extends Popup {
             evt.preventDefault();
             const inputValues = this._getInputValues()
             this._submitCallback(inputValues)
-            this.close()
         });
     }
 
     close () {
         this._form.reset()
-        super.close(); // Родительским классом убираются обработчики Esc, клика вне зоны попапа 
+        super.close();
     }
 }
